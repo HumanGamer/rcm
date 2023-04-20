@@ -35,7 +35,7 @@ namespace RigidChips {
 
 		public ValEntry(){
 			Default = Min = Step = 0f;
-			Max = float.PositiveInfinity;
+			Max = 1;// float.PositiveInfinity;
 			Disp = true;
 			RefCount = 0;
 		}
