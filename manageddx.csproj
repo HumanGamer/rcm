@@ -145,6 +145,7 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="KeyboardLayout.cs" />
     <Compile Include="PanelEx.cs">
       <SubType>Component</SubType>
     </Compile>
