@@ -1093,7 +1093,13 @@ namespace RigidChips {
 		/// <returns>成功すればTrue</returns>
 		public static bool TryParseNumber(string text) {
 			float dummy;
-			return TryParseNumber(text, out dummy);
+			try
+			{
+				return TryParseNumber(text, out dummy);
+			} catch
+			{
+				return false;
+			}
 		}
 		/// <summary>
 		/// RCDデータ用の数値としてパースする

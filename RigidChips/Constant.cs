@@ -117,6 +117,12 @@
 		public Constant(string expression) {
 			string s = expression.Trim();
 
+			if (string.IsNullOrEmpty(expression))
+			{
+				val = 0;
+				hex = false;
+				return;
+			}
 			val = Environment.ParseNumber(s);
 			hex = s[0] == '#';
 		}
