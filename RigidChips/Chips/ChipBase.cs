@@ -42,7 +42,7 @@ namespace RigidChips {
 			angle.Const = 0f;
 			angle.Val = null;
 			angle.IsNegative = false;
-			if(parent != null)
+			if(parent != null && Environment.EditOption.KeepParentColor)
 				this.ChipColor = parent.ChipColor;
 			else
 				this.ChipColor.SetValue(0xFFFFFF);

@@ -11,6 +11,7 @@ namespace RigidChips {
 		public bool InvertWheel = false;
 		public bool InvertRotateX = false;
 		public bool InvertRotateY = false;
+		public bool KeepParentColor = false;
 
 		public EditOptions(){
 			try{
@@ -24,6 +25,7 @@ namespace RigidChips {
 				InvertWheel = bool.Parse(file.ReadLine());
 				InvertRotateX = bool.Parse(file.ReadLine());
 				InvertRotateY = bool.Parse(file.ReadLine());
+				KeepParentColor = bool.Parse(file.ReadLine());
 			}
 			catch{}
 		}
@@ -39,6 +41,7 @@ namespace RigidChips {
 			file.WriteLine(InvertWheel.ToString());
 			file.WriteLine(InvertRotateX.ToString());
 			file.WriteLine(InvertRotateY.ToString());
+			file.WriteLine(KeepParentColor.ToString());
 
 			file.Close();
 		}
