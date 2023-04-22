@@ -24,21 +24,21 @@
 		public override string AttrTip(string AttrName) {
 			switch(AttrName){
 				case "Angle":
-					return "折り曲げ角度";
+					return "Bending angle";
 				case "Damper":
 				case "Dumper":
 				case "Danper":
 				case "Dunper":
-					return "接続部の堅さ";
+					return "Tightness of connection";
 				case "Spring":
-					return "接続部の弾性";
+					return "Elasticity of connection";
 				case "Power":
-					return "トリガ";
+					return "Trigger";
 				case "Option":
-					return "威力\nこれに比例した時間をチャージに要する";
+					return "Power\nHigher power will have slow recharge.";
 				case "User1":
 				case "User2":
-					return "シナリオ用";
+					return "For scenarios";
 				default:
 					return base.AttrTip(AttrName);
 			}

@@ -79,26 +79,26 @@ namespace RigidChips {
 		public override string AttrTip(string AttrName) {
 			switch(AttrName){
 				case "Angle":
-					return "折り曲げ角度";
+					return "Bending angle";
 				case "Damper":
 				case "Dumper":
 				case "Danper":
 				case "Dunper":
-					return "接続部の堅さ";
+					return "Tightness of connection";
 				case "Spring":
-					return "接続部の弾性";
+					return "Elasticity of connection";
 				case "Power":
-					return "回転出力";
+					return "Rotation output";
 				case "Brake":
 				case "Break":
-					return "制動力";
+					return "Braking force";
 				case "Option":
-					return "タイヤ径 1:x1.5 2:x2.0";
+					return "Tire diameter 1:x1.5 2:x2.0";
 				case "Effect":
-					return "タイヤ幅(1.0-10.0 物理的な影響なし)";
+					return "Tire width (1.0-10.0 no physical effect)";
 				case "User1":
 				case "User2":
-					return "シナリオ用";
+					return "For scenarios";
 				default:
 					return base.AttrTip(AttrName);
 			}

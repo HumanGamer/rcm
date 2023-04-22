@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 
 namespace RigidChips {
 	///<summery>
@@ -35,7 +36,7 @@ namespace RigidChips {
 
 		public override void Add(JointPosition joint, ChipBase chip,bool Registeration) {
 			if(!(chip is CowlChip)){
-				throw new Exception("カウルにはカウルしか接続できません。");
+				MessageBox.Show("Only Cowl can be connected to Cowl! Remove non-Cowl chip to make this model usable in-game again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 			}
 			base.Add(joint,chip,Registeration);
 		}
@@ -43,14 +44,14 @@ namespace RigidChips {
 		public override string AttrTip(string AttrName) {
 			switch(AttrName){
 				case "Angle":
-					return "折り曲げ角度";
+					return "Bending angle";
 				case "Option":
-					return "形状\n1:枠 2:円 3,4:直角三角形 5:半円 他:四角";
+					return "Shape of Cowl";
 				case "Effect":
-					return "マテリアルの詳細(4桁16進数)\n左←透明度、発光度、スペキュラの強度、スペキュラ→右";
+					return "Material details (4-digit hexadecimal number)\n Left ← transparency, luminosity, specular intensity, specular → right";
 				case "User1":
 				case "User2":
-					return "シナリオ用";
+					return "For scenarios";
 				default:
 					return base.AttrTip(AttrName);
 			}

@@ -36,9 +36,9 @@ namespace RigidChips {
 		public override string AttrTip(string AttrName) {
 			switch(AttrName){
 				case "User1":
-					return "シナリオ用";
+					return "For scenarios";
 				case "User2":
-					return "シナリオ用";
+					return "For scenarios";
 				default:
 					return base.AttrTip(AttrName);
 			}

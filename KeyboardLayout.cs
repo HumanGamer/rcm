@@ -17,6 +17,10 @@ namespace rcm
 
 		public static bool ShouldFlipZY()
 		{
+
+            return true;
+
+            /*
             StringBuilder name = new StringBuilder(KL_NAMELENGTH);
             GetKeyboardLayoutName(name);
             String KeyBoardLayout = name.ToString();
@@ -39,7 +43,7 @@ namespace rcm
             {
                 //MessageBox.Show("Using QWERTY");
                 return false;
-            }
+            }*/
         }
 	}
 }

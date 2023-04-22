@@ -45,14 +45,14 @@ namespace RigidChips {
 					ChipColor.SetValue(Color.LightGray.ToArgb());
 					break;
 			}
-			Environment.d3ddevice.Lights[0].Enabled = false;
-			Environment.d3ddevice.Lights[1].Enabled = true;
+			//Environment.d3ddevice.Lights[0].Enabled = false;
+			//Environment.d3ddevice.Lights[1].Enabled = true;
 			Environment.d3ddevice.Lights[0].Update();
 			Environment.d3ddevice.Lights[1].Update();
 			if(mesh != null)
 				mesh.Draw(Environment.d3ddevice,ChipColor.ToColor(),0x7000,matRotation * Matrix);
-			Environment.d3ddevice.Lights[0].Enabled = true;
-			Environment.d3ddevice.Lights[1].Enabled = false;
+			//Environment.d3ddevice.Lights[0].Enabled = true;
+			//Environment.d3ddevice.Lights[1].Enabled = false;
 			Environment.d3ddevice.Lights[0].Update();
 			Environment.d3ddevice.Lights[1].Update();
 		}

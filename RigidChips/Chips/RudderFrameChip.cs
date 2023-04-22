@@ -54,7 +54,7 @@ get{			return base.Fuel / 2;}
 
 		public override string AttrTip(string AttrName) {
 			if(AttrName == "Option")
-				return "0以外でゴースト化";
+				return "Set 1 for invisible chip";
 			return base.AttrTip (AttrName);
 		}
 

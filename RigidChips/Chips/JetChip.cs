@@ -38,23 +38,23 @@ namespace RigidChips {
 		public override string AttrTip(string AttrName) {
 			switch(AttrName){
 				case "Angle":
-					return "折り曲げ角度";
+					return "Bending angle";
 				case "Damper":
 				case "Dumper":
 				case "Danper":
 				case "Dunper":
-					return "接続部の堅さ";
+					return "Tightness of connection";
 				case "Spring":
-					return "接続部の弾性";
+					return "Elasticity of connection";
 				case "Power":
-					return "ジェット出力:バルーンガス量";
+					return "Jet Output and Balloon gas volume";
 				case "Option":
-					return "0:ジェット 1:水素バルーン 2:空気バルーン";
+					return "0: Jet 1: Hydrogen balloon 2: Air balloon";
 				case "Effect":
-					return "1-4:スモークを出す(ジェット時のみ)";
+					return "1-4: Smoke (Jet only)";
 				case "User1":
 				case "User2":
-					return "シナリオ用";
+					return "For scenarios";
 				default:
 					return base.AttrTip(AttrName);
 			}

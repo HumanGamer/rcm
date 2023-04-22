@@ -169,7 +169,7 @@ namespace RigidChips {
 					return;
 				}
 			}
-			throw new Exception($"これ以上子チップを格納できません。ひとつのチップに取り付けられるチップの数は{Environment.ChildCapasity}までです。");
+			throw new Exception($"Cannot store more child chips. The maximum number of chips that can be attached to one chip is {Environment.ChildCapasity}.");
 		}
 
 		/// <summary>
@@ -205,7 +205,7 @@ namespace RigidChips {
 				return;
 			}
 			else {
-				throw new Exception("指定されたチップは見つかりませんでした : " + chip.ToString());
+				throw new Exception("The specified chip was not found: " + chip.ToString());
 			}
 		}
 
@@ -268,7 +268,7 @@ namespace RigidChips {
 		/// <param name="AttrName">使用可能な属性名。</param>
 		/// <returns>指定した属性の説明文。</returns>
 		public virtual string AttrTip(string AttrName){
-			if(AttrName == "Color")	return "チップ色"; else return null;
+			if(AttrName == "Color")	return "Chip color"; else return null;
 		}
 
 		/// <summary>
@@ -279,7 +279,7 @@ namespace RigidChips {
 				if(AttrName == "Color")
 					ChipColor = value;
 				else
-					throw new Exception("指定された名前の属性は存在しません : " + AttrName);
+					throw new Exception("Attribute with specified name does not exist: " + AttrName);
 			}
 
 			get{
@@ -287,7 +287,7 @@ namespace RigidChips {
 					return ChipColor;
 
 				else
-					throw new Exception("指定された名前の属性は存在しません : " + AttrName);
+					throw new Exception("Attribute with specified name does not exist: " + AttrName);
 			}
 		}
 
@@ -727,7 +727,7 @@ namespace RigidChips {
 					index++;
 					break;
 				default:
-					throw new Exception("不明なチップ種類が検出されました : " + param[index]);
+					throw new Exception("Unknown chip type detected: " + param[index]);
 			}
 			newchip.JointPosition = jp;
 			ChipAttribute attr = new ChipAttribute();
@@ -747,7 +747,7 @@ namespace RigidChips {
 				}
 			}
 			catch(IndexOutOfRangeException){
-				throw new Exception("不正な属性値指定が存在します。");
+				throw new Exception("Illegal attribute value specification exists.");
 			}
 			catch(Exception e){
 				MessageBox.Show(e.Message);
@@ -845,7 +845,7 @@ namespace RigidChips {
 			ChipBase buff;
 
 			if(type != RigidChips.ChipType.Cowl && this.Parent is CowlChip)
-				throw new Exception("親チップがカウルなので、種類の変更が出来ません。");
+				throw new Exception("Parent is a cowl. Can't change chip to non-cowl chip.");
 			
 			switch(type) {
 				case RigidChips.ChipType.Arm:

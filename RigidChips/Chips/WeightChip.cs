@@ -116,7 +116,7 @@
 
 		public override string AttrTip(string AttrName) {
 			if(AttrName == "Option")
-				return "重量倍率(1-8)";
+				return "Weight scale (1-8)";
 			else
 				return base.AttrTip (AttrName);
 		}
