@@ -7,7 +7,7 @@ namespace RigidChips {
 		public bool ConvertParentAttributes = false;	//	新規接続時、親チップの属性をコピーする
 		public int ScrollFrameNum = 20;
 		public int AngleViewGrid = 1;
-		public bool AttributeAutoApply = false;
+		public bool AttributeAutoApply = true;
 		public bool InvertWheel = false;
 		public bool InvertRotateX = false;
 		public bool InvertRotateY = false;
