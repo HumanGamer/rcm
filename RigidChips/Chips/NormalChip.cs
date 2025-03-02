@@ -12,7 +12,7 @@
 				damper.Val = null;
 				damper.Const = 0.5f;
 				spring.Val = null;
-				spring.Const = 0.5f;
+				spring.Const = 1.0f;
 			}
 		}
 
@@ -58,7 +58,7 @@
 
 		public override float[] AttrDefaultValueList {
 			get {
-				return new float[]{(float)0xFFFFFF,0f,0.5f,0.5f,0f,0f};
+				return new float[]{(float)0xFFFFFF,0f,0.5f,1.0f,0f,0f};
 			}
 		}
 

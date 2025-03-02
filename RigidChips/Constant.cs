@@ -1,4 +1,6 @@
-﻿namespace RigidChips {
+﻿using System.Globalization;
+
+namespace RigidChips {
 	/*
 	public class RcHistory{
 		const int HistoryListSize = 16;
@@ -140,10 +142,10 @@
 
 		public override string ToString() {
 			if (hex) {
-				return "#" + ((int)val).ToString("X6");
+				return "#" + ((int)val).ToString("X6", CultureInfo.InvariantCulture);
 			}
 			else {
-				return val.ToString("#########0.########");
+				return val.ToString("#########0.########", CultureInfo.InvariantCulture);
 			}
 		}
 	}
