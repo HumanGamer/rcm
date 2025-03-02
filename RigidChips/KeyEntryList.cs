@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Globalization;
+using System.Windows.Forms;
 
 namespace RigidChips {
 	/// <summary>
@@ -54,7 +55,7 @@ namespace RigidChips {
 			string step;
 			int i = 0;
 			while(i < list.Length -1){
-				buff = this.list[int.Parse(list[i++])];
+				buff = this.list[int.Parse(list[i++], CultureInfo.InvariantCulture)];
 				do{
 					if(list[i] == "")i++;
 
@@ -65,7 +66,7 @@ namespace RigidChips {
 					}
 					valbuff = vallist[valname];
 					if(valbuff != null)
-						buff.AssignWork(vallist[valname],float.Parse(step));
+						buff.AssignWork(vallist[valname],float.Parse(step, CultureInfo.InvariantCulture));
 				}while(i < list.Length - 1 && list[i] == "");
 			}
 			

@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Globalization;
+using System.IO;
 using System.Windows.Forms;
 
 namespace RigidChips {
@@ -24,7 +25,7 @@ namespace RigidChips {
 					OpenBracketWithChipDefinition = bool.Parse(file.ReadLine());
 					CommaWithSpace = bool.Parse(file.ReadLine());
 					PrintAllAttributes = bool.Parse(file.ReadLine());
-					IndentNum = uint.Parse(file.ReadLine(), System.Globalization.NumberStyles.Integer);
+					IndentNum = uint.Parse(file.ReadLine(), System.Globalization.NumberStyles.Integer, CultureInfo.InvariantCulture);
 
 					file.Close();
 				}

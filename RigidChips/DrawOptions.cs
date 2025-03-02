@@ -2,6 +2,7 @@
 using System.IO;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace RigidChips {
 	//----------------------------------------------------------------------------------//
@@ -55,25 +56,25 @@ namespace RigidChips {
 			try{
 				System.IO.StreamReader file = new StreamReader(Application.StartupPath + "\\draw.cfg");
 
-				BackColor = Color.FromArgb(int.Parse(file.ReadLine(),System.Globalization.NumberStyles.Number));
-				CursorFrontColor = Color.FromArgb(int.Parse(file.ReadLine(),System.Globalization.NumberStyles.Number));
-				CursorBackColor = Color.FromArgb(int.Parse(file.ReadLine(),System.Globalization.NumberStyles.Number));
-				NGuideColor = Color.FromArgb(int.Parse(file.ReadLine(),System.Globalization.NumberStyles.Number));
-				SGuideColor = Color.FromArgb(int.Parse(file.ReadLine(),System.Globalization.NumberStyles.Number));
-				EGuideColor = Color.FromArgb(int.Parse(file.ReadLine(),System.Globalization.NumberStyles.Number));
-				WGuideColor = Color.FromArgb(int.Parse(file.ReadLine(),System.Globalization.NumberStyles.Number));
-				XAxisColor = Color.FromArgb(int.Parse(file.ReadLine(),System.Globalization.NumberStyles.Number));
-				YAxisColor = Color.FromArgb(int.Parse(file.ReadLine(),System.Globalization.NumberStyles.Number));
-				ZAxisColor = Color.FromArgb(int.Parse(file.ReadLine(),System.Globalization.NumberStyles.Number));
-				XNegAxisColor = Color.FromArgb(int.Parse(file.ReadLine(),System.Globalization.NumberStyles.Number));
-				YNegAxisColor = Color.FromArgb(int.Parse(file.ReadLine(),System.Globalization.NumberStyles.Number));
-				ZNegAxisColor = Color.FromArgb(int.Parse(file.ReadLine(),System.Globalization.NumberStyles.Number));
-				WeightColor = Color.FromArgb(int.Parse(file.ReadLine(),System.Globalization.NumberStyles.Number));
+				BackColor = Color.FromArgb(int.Parse(file.ReadLine(),System.Globalization.NumberStyles.Number, CultureInfo.InvariantCulture));
+				CursorFrontColor = Color.FromArgb(int.Parse(file.ReadLine(),System.Globalization.NumberStyles.Number, CultureInfo.InvariantCulture));
+				CursorBackColor = Color.FromArgb(int.Parse(file.ReadLine(),System.Globalization.NumberStyles.Number, CultureInfo.InvariantCulture));
+				NGuideColor = Color.FromArgb(int.Parse(file.ReadLine(),System.Globalization.NumberStyles.Number, CultureInfo.InvariantCulture));
+				SGuideColor = Color.FromArgb(int.Parse(file.ReadLine(),System.Globalization.NumberStyles.Number, CultureInfo.InvariantCulture));
+				EGuideColor = Color.FromArgb(int.Parse(file.ReadLine(),System.Globalization.NumberStyles.Number, CultureInfo.InvariantCulture));
+				WGuideColor = Color.FromArgb(int.Parse(file.ReadLine(),System.Globalization.NumberStyles.Number, CultureInfo.InvariantCulture));
+				XAxisColor = Color.FromArgb(int.Parse(file.ReadLine(),System.Globalization.NumberStyles.Number, CultureInfo.InvariantCulture));
+				YAxisColor = Color.FromArgb(int.Parse(file.ReadLine(),System.Globalization.NumberStyles.Number, CultureInfo.InvariantCulture));
+				ZAxisColor = Color.FromArgb(int.Parse(file.ReadLine(),System.Globalization.NumberStyles.Number, CultureInfo.InvariantCulture));
+				XNegAxisColor = Color.FromArgb(int.Parse(file.ReadLine(),System.Globalization.NumberStyles.Number, CultureInfo.InvariantCulture));
+				YNegAxisColor = Color.FromArgb(int.Parse(file.ReadLine(),System.Globalization.NumberStyles.Number, CultureInfo.InvariantCulture));
+				ZNegAxisColor = Color.FromArgb(int.Parse(file.ReadLine(),System.Globalization.NumberStyles.Number, CultureInfo.InvariantCulture));
+				WeightColor = Color.FromArgb(int.Parse(file.ReadLine(),System.Globalization.NumberStyles.Number, CultureInfo.InvariantCulture));
 				ShowCowl = bool.Parse(file.ReadLine());
 				FrameGhostShow = bool.Parse(file.ReadLine());
 				string s = file.ReadLine();
 				try{
-					FrameGhostView = int.Parse(s);
+					FrameGhostView = int.Parse(s, CultureInfo.InvariantCulture);
 				}
 				catch(FormatException){
 					FrameGhostView = bool.Parse(s) ? 0 : 1;
@@ -89,13 +90,13 @@ namespace RigidChips {
 				WeightEnable = bool.Parse(file.ReadLine());
 				WeightBallEnable = bool.Parse(file.ReadLine());
 
-				BaloonSwellingRatio = float.Parse(file.ReadLine(),System.Globalization.NumberStyles.Float);
-				WeightBallSize = float.Parse(file.ReadLine(),System.Globalization.NumberStyles.Float);
-				WeightBallAlpha = float.Parse(file.ReadLine(),System.Globalization.NumberStyles.Float);
+				BaloonSwellingRatio = float.Parse(file.ReadLine(),System.Globalization.NumberStyles.Float, CultureInfo.InvariantCulture);
+				WeightBallSize = float.Parse(file.ReadLine(),System.Globalization.NumberStyles.Float, CultureInfo.InvariantCulture);
+				WeightBallAlpha = float.Parse(file.ReadLine(),System.Globalization.NumberStyles.Float, CultureInfo.InvariantCulture);
 				
 				CameraOrtho = bool.Parse(file.ReadLine());
 
-				WeightBallColor = Color.FromArgb(int.Parse(file.ReadLine(),System.Globalization.NumberStyles.Number));
+				WeightBallColor = Color.FromArgb(int.Parse(file.ReadLine(),System.Globalization.NumberStyles.Number, CultureInfo.InvariantCulture));
 
 				AutoCamera = bool.Parse(file.ReadLine());
 

@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Globalization;
+using System.IO;
 using System.Windows.Forms;
 
 namespace RigidChips {
@@ -19,8 +20,8 @@ namespace RigidChips {
 
 				UnvisibleNotSelected = bool.Parse(file.ReadLine());
 				ConvertParentAttributes = bool.Parse(file.ReadLine());
-				ScrollFrameNum = int.Parse(file.ReadLine());
-				AngleViewGrid = int.Parse(file.ReadLine());
+				ScrollFrameNum = int.Parse(file.ReadLine(), CultureInfo.InvariantCulture);
+				AngleViewGrid = int.Parse(file.ReadLine(), CultureInfo.InvariantCulture);
 				AttributeAutoApply = bool.Parse(file.ReadLine());
 				InvertWheel = bool.Parse(file.ReadLine());
 				InvertRotateX = bool.Parse(file.ReadLine());

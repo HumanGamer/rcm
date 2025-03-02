@@ -9,6 +9,7 @@ using Microsoft.DirectX;
 using Microsoft.DirectX.Direct3D;
 using System.Runtime.InteropServices.ComTypes;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace RigidChips {
 
@@ -844,10 +845,10 @@ namespace RigidChips {
 								continue;
 							try{
 								tmpV = this.vals.Add(parameters[0]);
-								tmpV.Default = float.Parse(parameters[1]);
-								tmpV.Min = float.Parse(parameters[2]);
-								tmpV.Max = float.Parse(parameters[3]);
-								tmpV.Step = float.Parse(parameters[4]);
+								tmpV.Default = float.Parse(parameters[1], CultureInfo.InvariantCulture);
+								tmpV.Min = float.Parse(parameters[2], CultureInfo.InvariantCulture);
+								tmpV.Max = float.Parse(parameters[3], CultureInfo.InvariantCulture);
+								tmpV.Step = float.Parse(parameters[4], CultureInfo.InvariantCulture);
 								tmpV.Disp = bool.Parse(parameters[5]);
 							}
 							catch{
@@ -866,7 +867,7 @@ namespace RigidChips {
 								foreach(string s in parameters){
 									parts = s.Split(':');
 									if(parts.Length < 2)continue;
-									keys[i++].AssignWork(vals[parts[0]],float.Parse(parts[1]));
+									keys[i++].AssignWork(vals[parts[0]],float.Parse(parts[1], CultureInfo.InvariantCulture));
 								}
 							}
 						}catch{}
@@ -892,8 +893,8 @@ namespace RigidChips {
 							}
 							else{
 								i = 4;
-								chip = array[int.Parse(parameters[0])].Clone(false,null);
-								chip.JointPosition = (JointPosition)(byte.Parse(parameters[1]));
+								chip = array[int.Parse(parameters[0], CultureInfo.InvariantCulture)].Clone(false,null);
+								chip.JointPosition = (JointPosition)(byte.Parse(parameters[1], CultureInfo.InvariantCulture));
 								chip.Name = parameters[2];
 								chip.ChipColor.SetValue(parameters[3],vals);
 								parts = chip.AttrNameList;
@@ -902,7 +903,7 @@ namespace RigidChips {
 									attr.SetValue(parameters[i++],vals);
 									chip[parts[j]] = attr;
 								}
-								chip.Attach(chips[int.Parse(parameters[i])],chip.JointPosition);
+								chip.Attach(chips[int.Parse(parameters[i], CultureInfo.InvariantCulture)],chip.JointPosition);
 
 								chips.Add(chip);
 							}
@@ -942,7 +943,7 @@ namespace RigidChips {
 						input = file.ReadLine();
 						while(input != null && input != "KEYS END"){
 							parameters = input.Split(',');
-							keys[int.Parse(parameters[0])].AssignWork(vals[parameters[1]],float.Parse(parameters[2]));
+							keys[int.Parse(parameters[0])].AssignWork(vals[parameters[1]],float.Parse(parameters[2], CultureInfo.InvariantCulture));
 							input = file.ReadLine();
 						}
 
@@ -965,13 +966,13 @@ namespace RigidChips {
 								model.root["User2"] = attr;
 								if (parameters.Length > 7)
 									for (int j = 7; j < parameters.Length; j++)
-										model.root.Comment += ((char)int.Parse(parameters[j])).ToString();
+										model.root.Comment += ((char)int.Parse(parameters[j], CultureInfo.InvariantCulture)).ToString();
 								chips.Add(model.root);
 							}
 							else {
 								i = 3;
-								chip = array[int.Parse(parameters[0])].Clone(false, null);
-								chip.JointPosition = (JointPosition)(byte.Parse(parameters[1]));
+								chip = array[int.Parse(parameters[0], CultureInfo.InvariantCulture)].Clone(false, null);
+								chip.JointPosition = (JointPosition)(byte.Parse(parameters[1], CultureInfo.InvariantCulture));
 								chip.Name = parameters[2];
 								parts = chip.AttrNameList;
 								for (int j = 0; j < parts.Length; j++) {
@@ -981,9 +982,9 @@ namespace RigidChips {
 								}
 								if (parameters.Length > i + 1)
 									for (int j = i + 1; j < parameters.Length; j++)
-										chip.Comment += ((char)int.Parse(parameters[j])).ToString();
+										chip.Comment += ((char)int.Parse(parameters[j], CultureInfo.InvariantCulture)).ToString();
 
-								chip.Attach(chips[int.Parse(parameters[i])], chip.JointPosition);
+								chip.Attach(chips[int.Parse(parameters[i], CultureInfo.InvariantCulture)], chip.JointPosition);
 
 								chips.Add(model.root);
 							}
@@ -997,7 +998,7 @@ namespace RigidChips {
 							this.luascript = true;
 						input = file.ReadLine();
 						while(input != null && input != "SCRIPT END"){
-							i = int.Parse(input);
+							i = int.Parse(input, CultureInfo.InvariantCulture);
 							for(int j = 0;j < i;j++)
 								script += (input = file.ReadLine()) + "\r\n";
 							input = file.ReadLine();
@@ -1079,10 +1080,10 @@ namespace RigidChips {
 			text = text.Trim();
 			if (text[0] == '#') {
 				// \˜Zi”
-				return (float)int.Parse(text.Substring(1), System.Globalization.NumberStyles.HexNumber);
+				return (float)int.Parse(text.Substring(1), System.Globalization.NumberStyles.HexNumber, CultureInfo.InvariantCulture);
 			}
 			else {
-				return float.Parse(text);
+				return float.Parse(text, CultureInfo.InvariantCulture);
 			}
 		}
 
@@ -1110,12 +1111,12 @@ namespace RigidChips {
 			text = text.Trim();
 			if (text[0] == '#') {
 				int buffer;
-				bool ret = int.TryParse(text.Substring(1), System.Globalization.NumberStyles.HexNumber, null, out buffer);
+				bool ret = int.TryParse(text.Substring(1), System.Globalization.NumberStyles.HexNumber, CultureInfo.InvariantCulture, out buffer);
 				result = (float)buffer;
 				return ret;
 			}
 			else {
-				return float.TryParse(text, out result);
+				return float.TryParse(text, NumberStyles.Float, CultureInfo.InvariantCulture, out result);
 			}
 		}
 

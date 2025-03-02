@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Globalization;
 
 namespace RigidChips {
 	/// <summary>
@@ -117,30 +118,30 @@ namespace RigidChips {
 					switch(param[j].ToLower()){
 						case "default":
 							if(param[j+1][0] == '#')
-								buff.Default = (float)int.Parse(param[j+1].Substring(1),System.Globalization.NumberStyles.AllowHexSpecifier);
+								buff.Default = (float)int.Parse(param[j+1].Substring(1),System.Globalization.NumberStyles.AllowHexSpecifier, CultureInfo.InvariantCulture);
 							else
-								buff.Default = float.Parse(param[j+1]);
+								buff.Default = float.Parse(param[j+1], CultureInfo.InvariantCulture);
 							break;
 						case "min":
 							if(param[j+1][0] == '#')
-								buff.Min = (float)int.Parse(param[j+1].Substring(1),System.Globalization.NumberStyles.AllowHexSpecifier);
+								buff.Min = (float)int.Parse(param[j+1].Substring(1),System.Globalization.NumberStyles.AllowHexSpecifier, CultureInfo.InvariantCulture);
 							else
-								buff.Min = float.Parse(param[j+1]);
+								buff.Min = float.Parse(param[j+1], CultureInfo.InvariantCulture);
 							break;
 						case "max":
 							if(param[j+1][0] == '#')
-								buff.Max = (float)int.Parse(param[j+1].Substring(1),System.Globalization.NumberStyles.AllowHexSpecifier);
+								buff.Max = (float)int.Parse(param[j+1].Substring(1),System.Globalization.NumberStyles.AllowHexSpecifier, CultureInfo.InvariantCulture);
 							else
-								buff.Max = float.Parse(param[j+1]);
+								buff.Max = float.Parse(param[j+1], CultureInfo.InvariantCulture);
 							break;
 						case "step":
 							if(param[j+1][0] == '#')
-								buff.Step = (float)int.Parse(param[j+1].Substring(1),System.Globalization.NumberStyles.AllowHexSpecifier);
+								buff.Step = (float)int.Parse(param[j+1].Substring(1),System.Globalization.NumberStyles.AllowHexSpecifier, CultureInfo.InvariantCulture);
 							else
-								buff.Step = float.Parse(param[j+1]);
+								buff.Step = float.Parse(param[j+1], CultureInfo.InvariantCulture);
 							break;
 						case "disp":
-							buff.Disp = (float.Parse(param[j+1]) != 0f);
+							buff.Disp = (float.Parse(param[j+1], CultureInfo.InvariantCulture) != 0f);
 							break;
 						case "":
 							break;
